@@ -35,6 +35,8 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+
+/* child means card */
 .child {
   height: 44vh;
   width: 35vh;
