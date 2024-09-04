@@ -6,6 +6,7 @@
 body {
   height: 100vh;
 }
+
 .parent {
   min-height: 100vh;
   width: 100%;
@@ -14,38 +15,15 @@ body {
     rgba(17, 81, 53, 1) 0%,
     rgb(193, 137, 74) 100%
   );
-
   text-align: center;
-  justify-content: center;
-  align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows the child divs to wrap on smaller screens */
+  position: relative;
 }
 
-.child h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-bottom: 6px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.header_text {
-  position: absolute;
-  top: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.describtion_text {
-  position: absolute;
-  top: 60px;
-
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* child means card */
 .child {
   height: 65vh;
   width: 35vh;
@@ -54,12 +32,22 @@ body {
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
   );
-  margin: 5px;
+  margin: 10px; /* Increased margin to avoid crowding on small screens */
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   padding: 14px;
   line-height: 1.5;
+  box-sizing: border-box; /* Ensures padding is included in the height/width */
+  z-index: 1; /* Ensures cards stay behind the header text */
+}
+
+.child h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .child p {
@@ -75,8 +63,68 @@ body {
   position: absolute;
 }
 
-.card {
-  position: relative;
+.header_text {
+  position: absolute;
+  top: 8px;
+  font-size: 20px;
+  font-weight: bold;
   width: 100%;
-  height: 100%;
+  z-index: 2; /* Higher z-index to stay above the cards */
+}
+
+.description_text {
+  position: absolute;
+  top: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  z-index: 2; /* Higher z-index to stay above the cards */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .parent {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 120px; /* Adjust spacing to account for header and description */
+  }
+
+  .child {
+    width: 90%;
+    height: auto;
+  }
+
+  .header_text,
+  .description_text {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .child h3 {
+    font-size: 20px;
+  }
+
+  .child p {
+    font-size: 18px;
+  }
+
+  .child img {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header_text,
+  .description_text {
+    font-size: 16px;
+  }
+
+  .child h3 {
+    font-size: 18px;
+  }
+
+  .child p {
+    font-size: 16px;
+  }
 }
