@@ -22,6 +22,14 @@ body {
   flex-direction: row;
 }
 
+.child h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .header_text {
   position: absolute;
   top: 8px;
@@ -32,13 +40,14 @@ body {
 .describtion_text {
   position: absolute;
   top: 60px;
+
   font-size: 20px;
   font-weight: bold;
 }
 
 /* child means card */
 .child {
-  height: 44vh;
+  height: 65vh;
   width: 35vh;
   background: linear-gradient(
     90deg,
@@ -49,12 +58,14 @@ body {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  padding: 10px;
+  padding: 14px;
+  line-height: 1.5;
 }
 
 .child p {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 200;
+  font-size: 20px;
 }
 
 .child img {
@@ -62,13 +73,6 @@ body {
   bottom: 0;
   width: 100%;
   position: absolute;
-}
-
-.card_title {
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 6px;
 }
 
 .card {
